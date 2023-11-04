@@ -24,7 +24,7 @@ public static class ArraysTester {
         Console.WriteLine($"<List>{{{string.Join(',', numbers)}}}"); // <List>{7, 8, 9, 1, 2, 3, 4, 5, 6}
         numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         RotateListRight(numbers, 9);
-        Console.WriteLine($"<List>{{{string.Join(',', numbers)}}}"); // <List>{1, 2, 3, 4, 5, 6, 7, 8, 9}
+        Console.WriteLine($"<List>{{{string.Join(',', numbers)}}}"); // <List>{1, 2, 3, 4, 5, 6, 7, 8, 9} 
     }
     /// <summary>
     /// This function will produce a list of size 'length' starting with 'number' followed by multiples of 'number'.  For 
