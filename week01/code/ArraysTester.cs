@@ -34,12 +34,12 @@ public static class ArraysTester {
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     private static double[] MultiplesOf(double number, int length)
     {
-        double[] multiples = new double[length]; 
-        double multiplier = 1;
-        for (int i = 0; i < length; i ++)
+        double[] multiples = new double[length]; // here you create a list
+        double multiplier = 1;                  // here we create a variable with the firt multiplier, 1
+        for (int i = 0; i < length; i ++)          // we want here to start a loop for each time we will multiply
         {
-            double times = number * multiplier;
-            multiples[i] = times;
+            double times = number * multiplier;     
+            multiples[i] = times;                   // here we multiple our main number for each multiplier given the times
             multiplier ++;
         }
         
@@ -58,9 +58,9 @@ public static class ArraysTester {
     private static void RotateListRight(List<int> data, int amount)
     {
         int count = data.Count; 
-        amount = amount % count;
-        data.InsertRange(0, data.GetRange(count-amount,amount));
-        data.RemoveRange(count,amount);      
+        amount = amount % count;                                //this is to do the right amount of rotations
+        data.InsertRange(0, data.GetRange(count-amount,amount));        //here me take the arrays to insert given the amount of index to rotate
+        data.RemoveRange(count,amount);                             //here we remove the arrays taken
 
     }
 }
