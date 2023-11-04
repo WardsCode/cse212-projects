@@ -57,13 +57,10 @@ public static class ArraysTester {
     /// </summary>
     private static void RotateListRight(List<int> data, int amount)
     {
-        for (int i = 0; i < amount; i ++)
-        {
-            int last = data[data.Count()-1];
-            data.RemoveAt(data.Count()-1);
-            data.Insert(i,last);
-
-        }        
+        int count = data.Count; 
+        amount = amount % count;
+        data.InsertRange(0, data.GetRange(count-amount,amount));
+        data.RemoveRange(count,amount);      
 
     }
 }
