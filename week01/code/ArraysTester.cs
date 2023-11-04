@@ -34,7 +34,7 @@ public static class ArraysTester {
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     private static double[] MultiplesOf(double number, int length)
     {
-        double[] multiples; 
+        double[] multiples = new double[length]; 
         double multiplier = 1;
         for (int i = 0; i < length; i ++)
         {
@@ -42,6 +42,7 @@ public static class ArraysTester {
             multiples[i] = times;
             multiplier ++;
         }
+        
 
         return multiples;
     }
@@ -56,8 +57,16 @@ public static class ArraysTester {
     /// </summary>
     private static void RotateListRight(List<int> data, int amount)
     {
-        int first = data[0];
-        data.RemoveAt(0);
-        data.Add(first);
+        for (int i = 0; i < amount; i ++)
+        {
+            int last = data[data.Count()-1];
+            data.RemoveAt(data.Count()-1);
+            data.Insert(i,last);
+
+        }        
+
     }
 }
+
+
+            
