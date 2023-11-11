@@ -34,11 +34,14 @@ public class TakingTurnsQueue {
             Console.WriteLine("No one in the queue.");
         else {
             Person person = _people.Dequeue();
-            if (person.Turns > 1) {
+            if (person.Turns > 1 ) {
                 person.Turns -= 1;
                 _people.Enqueue(person);
-            }
-
+                
+            }   
+            if(person.Turns==0){
+                    _people.Enqueue(person);
+                }         
             Console.WriteLine(person.Name);
         }
     }
