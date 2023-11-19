@@ -146,7 +146,13 @@ public static class SetsAndMapsTester {
         var degrees = new Dictionary<string, int>();
         foreach (var line in File.ReadLines(filename)) {
             var fields = line.Split(",");
-            // Todo Problem 2 - ADD YOUR CODE HERE
+            if (degrees.ContainsKey(fields[3])){
+                degrees[fields[3]] += 1; 
+
+            }
+            else{
+                degrees.Add(fields[3], 1);
+            }
         }
 
         return degrees;
@@ -172,7 +178,30 @@ public static class SetsAndMapsTester {
     /// # Problem 3 #
     /// #############
     private static bool IsAnagram(string word1, string word2) {
-        // Todo Problem 3 - ADD YOUR CODE HERE
+        var set1 = new HashSet<char>();
+        var set2 = new HashSet<char>();
+
+        if (word1.Length != word2.Length){
+            return false;
+        }
+
+        foreach(var a in word1.ToLower().Trim()){
+            set1.Add(a);
+        }
+        foreach(var b in word2.ToLower().Trim()){
+            set2.Add(b);
+        }
+
+        foreach(var c in set1 ){
+            if(!set2.Contains(c)){
+                return false;
+            }
+            
+        }
+        return true;
+
+
+
         return false;
     }
 
