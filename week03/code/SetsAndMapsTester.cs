@@ -111,6 +111,21 @@ public static class SetsAndMapsTester {
         // To display the pair correctly use something like:
         // Console.WriteLine($"{word} & {pair}");
         // Each pair of words should displayed on its own line.
+
+        var symetric_list = new HashSet<string>();
+
+        foreach(var word in words){
+            string reversed = new string(word.Reverse().ToArray());
+
+            if ( words.Contains(reversed) && !symetric_list.Contains(word)){
+                if (word == reversed){
+                    continue;
+                }
+                symetric_list.Add(word);
+                symetric_list.Add(reversed);
+                Console.WriteLine($"{word} & {reversed}");
+            }
+        }
     }
 
     /// <summary>
