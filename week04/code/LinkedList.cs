@@ -27,10 +27,17 @@ public class LinkedList : IEnumerable<int> {
     /// Insert a new node at the back (i.e. the tail) of the linked list.
     /// </summary>
     public void InsertTail(int value) {
-        Node newNode = new Node (value);
-        newNode.Prev = _tail;
-        newNode.Next = newNode;
-        _tail = newNode;
+        
+        Node newNode = new Node(value);
+        if (_tail is null) {
+            _head = newNode;
+            _tail = newNode;
+        }
+        else {
+            newNode.Prev = _tail;
+            _tail.Next = newNode;
+            _tail = newNode;
+        }
     }
 
 
@@ -119,12 +126,12 @@ public class LinkedList : IEnumerable<int> {
     /// Search for all instances of 'oldValue' and replace the value to 'newValue'.
     /// </summary>
     public void Replace(int oldValue, int newValue) {
-        Node newNode1 = new Node (newValue);
+        Node newNode2 = new Node (newValue);
         Node? curr = _head;
         while(curr != _tail){
             if (curr == oldValue){
-                curr.Next.Prev = newNode1;
-                curr.Prev.Next = newNode1;
+                curr.Next.Prev = newNode2;
+                curr.Prev.Next = newNode2;
             }
             curr = curr.Next;
         }
@@ -153,8 +160,11 @@ public class LinkedList : IEnumerable<int> {
     /// Iterate backward through the Linked List
     /// </summary>
     public IEnumerable Reverse() {
-        // TODO Problem 5
-        yield return 0; // replace this line with the correct yield return statement(s)
+        var curr = _tail;
+        while (curr is not null){
+            yield return curr.Data;
+            curr = curr.Prev;
+        }
     }
 
     public override string ToString() {
